@@ -20,12 +20,15 @@ export default function NavBar() {
       {typeof bear === 'undefined' ? (
         <span className='text-slate-200'>--</span>
       ) : (
-        <Link href={`/bear/${bear.id}`} className='text-slate-200'>
+        <Link
+          href={`/bear/${bear.id}`}
+          className='text-slate-50 font-bold hover:bg-slate-50/20 px-4 py-2 rounded'
+        >
           {bear.name}
         </Link>
       )}
       <RightArrow />
-      <span className='text-slate-200'>{cub?.name ?? '--'}</span>
+      <span className='text-slate-200 font-bold'>{cub?.name ?? '--'}</span>
     </nav>
   );
 }
