@@ -18,7 +18,7 @@ export default function NavBar() {
       </Link>
       <RightArrow />
       {typeof bear === 'undefined' ? (
-        <span className='text-slate-200'>--</span>
+        <span className='text-slate-200 font-bold'>--</span>
       ) : (
         <Link
           href={`/bear/${bear.id}`}
@@ -28,7 +28,16 @@ export default function NavBar() {
         </Link>
       )}
       <RightArrow />
-      <span className='text-slate-200 font-bold'>{cub?.name ?? '--'}</span>
+      {typeof bear === 'undefined' || typeof cub === 'undefined' ? (
+        <span className='text-slate-200 font-bold'>--</span>
+      ) : (
+        <Link
+          href={`/bear/${bear.id}/cub/${cub.id}`}
+          className='text-slate-50 font-bold hover:bg-slate-50/20 px-4 py-2 rounded'
+        >
+          {cub.name}
+        </Link>
+      )}
     </nav>
   );
 }
